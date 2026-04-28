@@ -1,0 +1,174 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 40,
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 4,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+
+  "modules-center": [
+    "mpris"
+  ],
+
+  "modules-right": [
+	"tray",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "battery",
+    "network",
+    "clock"
+  ],
+
+  "custom/logo": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "hyprlauncher"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九"
+    },
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    "show-special": false
+  },
+
+  "hyprland/window": {
+    "format": "{class}",
+    "separate-outputs": true,
+    "max-length": 30,
+    "rewrite": {
+      "(.+)": " $1"
+    }
+  },
+
+  "mpris": {
+    "format": "{player_icon} {title} — {artist}",
+    "format-paused": "{status_icon} {title} — {artist}",
+    "player-icons": {
+      "default": "▶",
+      "spotify": "",
+      "mpv":     ""
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "ignored-players": ["firefox"],
+    "max-length": 40,
+    "tooltip": true,
+    "tooltip-format": " {title}\n {artist}\n {album}\n{position}/{length}",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁 mute",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%\nDevice: {desc}"
+  },
+
+  "cpu": {
+    "format": "󰢽 {usage}%",
+    "interval": 2,
+    "tooltip": true,
+    "tooltip-format": "CPU: {usage}%\nLoad: {load}"
+  },
+  
+  "tray": {
+      "icon-size": 16,
+      "spacing": 8,
+      "show-passive-items": true
+  },
+
+  "memory": {
+    "format": "󰍛 {used:0.1f}G",
+    "interval": 5,
+    "tooltip": true,
+    "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G"
+  },
+
+  "battery": {
+    "states": {
+      "good": 80,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂈 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip": true,
+    "tooltip-format": "{timeTo}\nCycles: {cycles}"
+  },
+
+  "network": {
+    "format-wifi": "󰖩 {essid}",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "󰖪 offline",
+    "format-linked": "󰈁 no IP",
+    "tooltip": true,
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+    "on-click": "nm-connection-editor",
+    "interval": 5
+  },
+
+  "clock": {
+    "format": "󰥔 {:%H:%M}",
+    "format-alt": "󰃭 {:%a %d.%m.%Y}",
+    "tooltip": true,
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "mode",
+    "calendar": {
+      "mode": "month",
+      "weeks-pos": "left",
+      "on-scroll": 1,
+      "format": {
+        "months":   "<span color='#f5c518'><b>{}</b></span>",
+        "weeks":    "<span color='#6b3fa0'>{}</span>",
+        "weekdays": "<span color='#a855f7'><b>{}</b></span>",
+        "today":    "<span color='#f5e690'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right":  "shift_reset",
+      "on-scroll-up":    "shift_up",
+      "on-scroll-down":  "shift_down"
+    }
+  }
+}

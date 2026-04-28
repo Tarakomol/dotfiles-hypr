@@ -1,0 +1,283 @@
+/* ============================================================
+   Waybar — Purple & Yellow Theme
+   Шрифт: JetBrains Mono Nerd Font
+   Иконки: Nerd Fonts v3
+   ============================================================ */
+
+@define-color bg-main    #150d25;
+@define-color bg-module  rgba(30, 14, 56, 0.85);
+@define-color bg-hover   rgba(139, 92, 246, 0.15);
+@define-color bg-active  rgba(245, 197, 24, 0.12);
+
+@define-color border-main   #4a2a7a;
+@define-color border-accent rgba(139, 92, 246, 0.3);
+@define-color border-yellow rgba(245, 197, 24, 0.35);
+
+@define-color purple-light  #c4a8ff;
+@define-color purple-mid    #a855f7;
+@define-color purple-dark   #7c3aed;
+@define-color purple-muted  #6b3fa0;
+@define-color purple-deep   #3a2358;
+
+@define-color yellow-bright #f5e690;
+@define-color yellow-main   #f5c518;
+@define-color yellow-dim    rgba(245, 197, 24, 0.6);
+
+@define-color text-primary  #e0d0ff;
+@define-color text-muted    #7a5fa0;
+@define-color text-dim      #4a3466;
+
+/* ── Window ────────────────────────────────────────────── */
+window#waybar {
+  background: @bg-main;
+  border: 1px solid @border-main;
+  border-radius: 12px;
+  color: @text-primary;
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  font-size: 13px;
+  transition: border-color 0.3s;
+}
+
+window#waybar.hidden {
+  opacity: 0;
+}
+
+/* ── Sections ──────────────────────────────────────────── */
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 0 4px;
+}
+
+/* ── Base module style ─────────────────────────────────── */
+#custom-logo,
+#workspaces,
+#window,
+#mpris,
+#pulseaudio,
+#cpu,
+#memory,
+#battery,
+#network,
+#clock {
+  padding: 0 10px;
+  color: @text-primary;
+}
+
+/* ── Logo ──────────────────────────────────────────────── */
+#custom-logo {
+  color: @purple-mid;
+  font-size: 16px;
+  padding: 0 10px 0 6px;
+  border-right: 1px solid @border-accent;
+  margin-right: 4px;
+}
+
+#custom-logo:hover {
+  color: @yellow-main;
+}
+
+/* ── Workspaces ────────────────────────────────────────── */
+#workspaces {
+  padding: 0 4px;
+  border-right: 1px solid @border-accent;
+  margin-right: 4px;
+}
+
+#workspaces button {
+  padding: 2px 8px;
+  border-radius: 7px;
+  color: #f5c518;;
+  background: transparent;
+  border: none;
+  font-family: "Noto Serif CJK JP", "Source Han Serif JP", serif;
+  font-size: 14px;
+  transition: all 0.15s ease;
+}
+
+#tray {
+    padding: 0 8px;
+    border-right: 1px solid rgba(139, 92, 246, 0.3);
+    margin-right: 4px;
+}
+
+#workspaces button:hover {
+  color: #a855f7;        /* фиолетовый при наведении */
+  background: rgba(139, 92, 246, 0.2);
+}
+
+#workspaces button.active {
+  color: #7c3aed;        /* фиолетовый на активном */
+  background: rgba(139, 92, 246, 0.28);
+  font-weight: bold;
+}
+
+#workspaces button.occupied {
+  background: rgba(139, 92, 246, 0.28);
+  color: @purple-light;
+}
+
+#workspaces button.urgent {
+  background: rgba(226, 75, 74, 0.3);
+  color: #f09595;
+  border: 1px solid rgba(226, 75, 74, 0.5);
+}
+
+/* ── Window title ──────────────────────────────────────── */
+#window {
+  color: @text-muted;
+  font-size: 12px;
+  padding: 0 8px;
+}
+
+/* ── MPRIS Music ───────────────────────────────────────── */
+#mpris {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid @border-accent;
+  border-radius: 8px;
+  padding: 0 12px;
+  color: @yellow-bright;
+  font-size: 12px;
+}
+
+#mpris:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: @border-yellow;
+  color: @yellow-main;
+}
+
+#mpris.paused {
+  color: @text-muted;
+  border-color: rgba(106, 63, 160, 0.2);
+}
+
+#mpris.stopped {
+  color: @text-dim;
+  border-color: transparent;
+  background: transparent;
+}
+
+/* ── Pulseaudio ────────────────────────────────────────── */
+#pulseaudio {
+  color: @purple-light;
+  border-left: 1px solid @border-accent;
+  padding-left: 12px;
+  margin-left: 4px;
+}
+
+#pulseaudio:hover {
+  color: @yellow-main;
+  background: @bg-hover;
+  border-radius: 7px;
+}
+
+#pulseaudio.muted {
+  color: @text-dim;
+}
+
+/* ── CPU ───────────────────────────────────────────────── */
+#cpu {
+  color: @purple-light;
+}
+
+#cpu:hover {
+  background: @bg-hover;
+  border-radius: 7px;
+  color: @yellow-main;
+}
+
+/* high load highlight */
+#cpu.warning  { color: @yellow-main; }
+#cpu.critical { color: #f09595; }
+
+/* ── Memory ────────────────────────────────────────────── */
+#memory {
+  color: @purple-light;
+}
+
+#memory:hover {
+  background: @bg-hover;
+  border-radius: 7px;
+  color: @yellow-main;
+}
+
+#memory.warning  { color: @yellow-main; }
+#memory.critical { color: #f09595; }
+
+/* ── Battery ───────────────────────────────────────────── */
+#battery {
+  color: @purple-light;
+  border-left: 1px solid @border-accent;
+  padding-left: 12px;
+  margin-left: 4px;
+}
+
+#battery:hover {
+  background: @bg-hover;
+  border-radius: 7px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @yellow-main;
+}
+
+#battery.good    { color: @purple-light; }
+#battery.warning { color: @yellow-main; }
+#battery.critical {
+  color: #f09595;
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  to { color: @text-dim; }
+}
+
+/* ── Network ───────────────────────────────────────────── */
+#network {
+  color: @text-muted;
+  padding: 0 8px;
+}
+
+#network:hover {
+  background: @bg-hover;
+  border-radius: 7px;
+  color: @purple-light;
+}
+
+#network.disconnected {
+  color: @text-dim;
+}
+
+/* ── Clock ─────────────────────────────────────────────── */
+#clock {
+  color: @yellow-bright;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.02em;
+  border-left: 1px solid @border-accent;
+  padding-left: 12px;
+  margin-left: 4px;
+}
+
+#clock:hover {
+  background: @bg-hover;
+  border-radius: 0 10px 10px 0;
+  color: @yellow-main;
+}
+
+/* ── Tooltip ───────────────────────────────────────────── */
+tooltip {
+  background: #1e0e38;
+  border: 1px solid @border-main;
+  border-radius: 10px;
+  color: @text-primary;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 12px;
+  padding: 4px;
+}
+
+tooltip label {
+  color: @text-primary;
+  padding: 2px 6px;
+}
