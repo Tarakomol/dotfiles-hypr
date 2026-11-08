@@ -1,0 +1,70 @@
+@import url("colors-matugen.css");
+
+/* Сброс системных эффектов GTK */
+window, #outer-box, #inner-box, #input, #scroll, #text, #entry {
+    background-image: none;
+    box-shadow: none;
+}
+
+/* Основное окно Wofi */
+window {
+    background-color: @surface;
+    color: @on_surface;
+    border: 3px solid @primary;
+    border-radius: 12px;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 14px;
+}
+
+/* Внутренний контейнер */
+#outer-box {
+    padding: 10px;
+}
+
+/* Поле ввода (Строка поиска) */
+#input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 2px solid @outline;
+    color: @on_surface;
+    background-color: @surface_container;
+}
+
+/* Поле ввода в фокусе */
+#input:focus {
+    border: 2px solid @primary;
+}
+
+#scroll {
+    margin-top: 5px;
+}
+
+/* Строка с приложением в списке */
+#entry {
+    padding: 8px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+/* Выбранное приложение */
+#entry:selected {
+    background-color: @primary;
+}
+
+/* Текст внутри списка */
+#text {
+    color: @on_surface;
+}
+
+/* Текст выбранного приложения */
+#entry:selected #text {
+    color: @on_primary;
+    font-weight: bold;
+}
+
+/* Иконки */
+#img {
+    margin-right: 12px;
+}

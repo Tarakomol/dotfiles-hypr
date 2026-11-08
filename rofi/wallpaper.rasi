@@ -1,0 +1,112 @@
+/**
+ * Просмотрщик обоев: сетка миниатюр + большой предпросмотр выбранной.
+ * Структура основана на штатной теме fullscreen-preview.rasi,
+ * цвета берутся из colors-matugen.rasi (генерируется matugen).
+ */
+
+@import "colors-matugen.rasi"
+
+* {
+    background-color: transparent;
+    text-color: @fg-col;
+    border-color: @border-col;
+    font: "Noto Sans 12";
+}
+
+window {
+    fullscreen: true;
+    background-color: @bg-col-a;
+    padding: 2.5em 3em;
+    children: [ wrap, listview-split ];
+    spacing: 1.3em;
+}
+
+wrap {
+    expand: false;
+    orientation: vertical;
+    children: [ inputbar, message ];
+    background-color: @bg-col-light-a;
+    border: 2px;
+    border-color: @border-col-a;
+    border-radius: 12px;
+}
+
+icon-ib {
+    expand: false;
+    filename: "system-search";
+    size: 1.15em;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+inputbar {
+    spacing: 0.6em;
+    padding: 0.55em 0.9em;
+    children: [ icon-ib, entry ];
+}
+
+entry {
+    placeholder: "Поиск обоев…";
+    placeholder-color: @fg-col2;
+}
+
+listview-split {
+    orientation: horizontal;
+    spacing: 1.5em;
+    children: [ listview, icon-current-entry ];
+}
+
+listview {
+    flow: horizontal;
+    fixed-columns: true;
+    columns: 4;
+    lines: 3;
+    spacing: 0.9em;
+    scrollbar: false;
+    padding: 0.2em;
+}
+
+element {
+    orientation: vertical;
+    padding: 0.35em;
+    spacing: 0.35em;
+    background-color: @bg-col-card-a;
+    border: 2px;
+    border-color: transparent;
+    border-radius: 12px;
+    children: [ element-icon, element-text ];
+}
+
+element-icon {
+    size: 10em;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: @fg-col2;
+    padding: 0.15em;
+}
+
+element selected {
+    background-color: @selected-col-a;
+    border-color: @accent;
+}
+
+element selected element-text {
+    text-color: @fg-col;
+}
+
+icon-current-entry {
+    expand: true;
+    size: 90%;
+    background-color: @bg-col-light-a;
+    border: 3px;
+    border-color: @border-col-a;
+    border-radius: 16px;
+    padding: 0.5em;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}

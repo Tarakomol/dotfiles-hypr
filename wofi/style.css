@@ -1,71 +1,153 @@
-/* wofi — purple & yellow theme */
+/* Абсолютный путь обязателен: wofi загружает CSS из памяти,
+   поэтому относительный @import не находит colors-matugen.css. */
+@import url("/home/mge/.config/wofi/colors-matugen.css");
 
-window {
-  background-color: #150d25;
-  border: 1px solid #4a2a7a;
-  border-radius: 14px;
-  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
-  font-size: 13px;
+/* Псевдонимы matugen-цветов: всё берётся из colors-matugen.css */
+@define-color theme_background @surface;
+@define-color theme_foreground @on_surface;
+@define-color theme_text_color @on_surface;
+@define-color theme_accent @primary;
+@define-color theme_accent_text @on_primary;
+@define-color theme_hover alpha(@theme_foreground, 0.12);
+/* Полупрозрачный фон окна (0.88 = слегка прозрачный).
+   Внутренние контейнеры делаем transparent, чтобы прозрачность
+   не накапливалась слоями и была равномерной. */
+@define-color theme_background_transparent alpha(@theme_background, 0.88);
+
+/* ВАЖНО: GTK3 не поддерживает font-smooth и -webkit-font-smoothing.
+   Эти свойства вызывают ошибку парсера, и wofi игнорирует весь CSS.
+   Сглаживание отключено через fontconfig (99-pixel-fonts.conf). */
+
+* {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    outline: none;
+    background-image: none;
+    font-family: "Terminus", "Tamzen", monospace;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-#input {
-  background-color: #1a0f2e;
-  border: none;
-  border-bottom: 1px solid #2a1248;
-  border-radius: 14px 14px 0 0;
-  color: #f5e690;
-  font-family: "JetBrainsMono Nerd Font", monospace;
-  font-size: 14px;
-  padding: 14px 16px;
-  outline: none;
-  caret-color: #f5c518;
-}
-
-#input:focus {
-  border-bottom-color: #6b3fa0;
-}
-
-#inner-box {
-  background-color: transparent;
+window,
+#window {
+    background-color: @theme_background_transparent;
+    color: @theme_text_color;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
 }
 
 #outer-box {
-  background-color: #150d25;
-  border-radius: 14px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 8px;
+}
+
+/* Поле ввода — строка приглашения терминала: тот же фон, без рамок */
+#input {
+    background-color: transparent;
+    color: @theme_text_color;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    margin: 0 0 8px 0;
+    padding: 8px 0;
+    min-height: 20px;
+    caret-color: @theme_accent;
+    font-family: "Terminus", "Tamzen", monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#input:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+#input selection {
+    background-color: @theme_accent;
+    color: @theme_accent_text;
 }
 
 #scroll {
-  background-color: transparent;
-  padding: 8px 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
 }
 
-#text {
-  color: #e0d0ff;
-  padding: 0 4px;
+#inner-box {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
 }
 
 #entry {
-  background-color: transparent;
-  border-radius: 8px;
-  padding: 8px 16px;
-  margin: 1px 6px;
-  border-left: 3px solid transparent;
+    background-color: transparent;
+    color: @theme_text_color;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 4px 6px;
 }
 
 #entry:hover {
-  background-color: rgba(139, 92, 246, 0.12);
+    background-color: @theme_hover;
+    color: @theme_text_color;
 }
 
+/* Выделенный пункт — сплошная инверсия, как курсор терминала */
 #entry:selected {
-  background-color: rgba(139, 92, 246, 0.18);
-  border-left-color: #f5c518;
+    background-color: @theme_accent;
+    color: @theme_accent_text;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#text {
+    color: @theme_text_color;
+    font-family: "Terminus", "Tamzen", monospace;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 #entry:selected #text {
-  color: #f5e690;
+    color: @theme_accent_text;
+    font-weight: bold;
 }
 
 #img {
-  border-radius: 8px;
-  margin-right: 4px;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    min-height: 0;
+    -gtk-icon-shadow: none;
+    -gtk-icon-effect: none;
+}
+
+scrollbar,
+scrollbar trough,
+scrollbar slider {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: 0;
+    min-height: 0;
 }

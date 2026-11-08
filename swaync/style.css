@@ -1,0 +1,51 @@
+/* SwayNC: цвета берутся из палитры matugen (генерируется из обоев) */
+@import url("colors-matugen.css");
+
+/* SwayNC: сглаженные углы и скруглённые обложки.
+ *
+ * ВАЖНО: GTK CSS не поддерживает "!important" — парсер GTK считает
+ * его мусором, ругается в лог и отбрасывает всю декларацию.
+ * Поэтому переопределяем через селекторы с достаточной специфичностью.
+ */
+
+/* Более сглаженные углы уведомлений и карточек */
+:root {
+    --border-radius: 20px;
+}
+
+/* Уведомления прижаты к краю экрана: убираем все внешние отступы,
+ * а зазор между карточками задаём через margin */
+.notification-row .notification-background {
+    padding: 0;
+}
+
+.notification-row:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+/* Правый край уведомления (у края экрана) — без скругления и без рамки */
+.notification-row .notification-background .notification {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+.notification-row .notification-background .notification .notification-default-action,
+.notification-row .notification-background .notification .notification-content {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.notification-row .notification-background .notification .notification-alt-actions {
+    border-bottom-right-radius: 0;
+}
+
+/* Основное изображение/обложка в уведомлении (по умолчанию border-radius: 100px) */
+.notification-row .notification-background .notification .notification-default-action .notification-content image.image {
+    border-radius: 12px;
+}
+
+/* Обложка в виджете плеера MPRIS (по умолчанию --border-radius) */
+.widget-mpris .widget-mpris-player .mpris-overlay image.widget-mpris-album-art {
+    border-radius: 12px;
+}

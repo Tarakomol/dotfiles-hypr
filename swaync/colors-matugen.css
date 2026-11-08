@@ -1,0 +1,29 @@
+/* Сгенерировано matugen для swaync */
+
+:root {
+    --cc-bg: rgba(22, 17, 27, 0.85);
+    --noti-bg: 35, 29, 40;
+    --noti-bg-alpha: 0.95;
+    --noti-bg-darker: #1f1924;
+    --noti-bg-hover: #2d2832;
+    --noti-bg-focus: rgba(45, 40, 50, 0.6);
+    --noti-close-bg: #38323d;
+    --noti-close-bg-hover: #6700b6;
+    --noti-border-color: rgba(150, 142, 155, 0.45);
+    --text-color: #eadfed;
+    --text-color-disabled: #cdc3d1;
+    --bg-selected: #dbb8ff;
+}
+
+/* Резервные цвета для старых версий swaync */
+@define-color cc-bg rgba(22, 17, 27, 0.85);
+@define-color noti-bg rgba(35, 29, 40, 0.95);
+@define-color noti-bg-darker #1f1924;
+@define-color noti-bg-hover #2d2832;
+@define-color noti-bg-focus rgba(45, 40, 50, 0.6);
+@define-color noti-close-bg #38323d;
+@define-color noti-close-bg-hover #6700b6;
+@define-color noti-border-color rgba(150, 142, 155, 0.45);
+@define-color text-color #eadfed;
+@define-color text-color-disabled #cdc3d1;
+@define-color bg-selected #dbb8ff;

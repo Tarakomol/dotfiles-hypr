@@ -1,0 +1,29 @@
+/* Сгенерировано matugen для swaync */
+
+:root {
+    --cc-bg: rgba({{colors.surface.default.red}}, {{colors.surface.default.green}}, {{colors.surface.default.blue}}, 0.85);
+    --noti-bg: {{colors.surface_container.default.red}}, {{colors.surface_container.default.green}}, {{colors.surface_container.default.blue}};
+    --noti-bg-alpha: 0.95;
+    --noti-bg-darker: {{colors.surface_container_low.default.hex}};
+    --noti-bg-hover: {{colors.surface_container_high.default.hex}};
+    --noti-bg-focus: rgba({{colors.surface_container_high.default.red}}, {{colors.surface_container_high.default.green}}, {{colors.surface_container_high.default.blue}}, 0.6);
+    --noti-close-bg: {{colors.surface_container_highest.default.hex}};
+    --noti-close-bg-hover: {{colors.primary_container.default.hex}};
+    --noti-border-color: rgba({{colors.outline.default.red}}, {{colors.outline.default.green}}, {{colors.outline.default.blue}}, 0.45);
+    --text-color: {{colors.on_surface.default.hex}};
+    --text-color-disabled: {{colors.on_surface_variant.default.hex}};
+    --bg-selected: {{colors.primary.default.hex}};
+}
+
+/* Резервные цвета для старых версий swaync */
+@define-color cc-bg rgba({{colors.surface.default.red}}, {{colors.surface.default.green}}, {{colors.surface.default.blue}}, 0.85);
+@define-color noti-bg rgba({{colors.surface_container.default.red}}, {{colors.surface_container.default.green}}, {{colors.surface_container.default.blue}}, 0.95);
+@define-color noti-bg-darker {{colors.surface_container_low.default.hex}};
+@define-color noti-bg-hover {{colors.surface_container_high.default.hex}};
+@define-color noti-bg-focus rgba({{colors.surface_container_high.default.red}}, {{colors.surface_container_high.default.green}}, {{colors.surface_container_high.default.blue}}, 0.6);
+@define-color noti-close-bg {{colors.surface_container_highest.default.hex}};
+@define-color noti-close-bg-hover {{colors.primary_container.default.hex}};
+@define-color noti-border-color rgba({{colors.outline.default.red}}, {{colors.outline.default.green}}, {{colors.outline.default.blue}}, 0.45);
+@define-color text-color {{colors.on_surface.default.hex}};
+@define-color text-color-disabled {{colors.on_surface_variant.default.hex}};
+@define-color bg-selected {{colors.primary.default.hex}};

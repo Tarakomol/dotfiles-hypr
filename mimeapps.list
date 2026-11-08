@@ -1,0 +1,37 @@
+[Default Applications]
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
+x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-U1NUT3.desktop
+x-scheme-handler/mid=userapp-Thunderbird-U1NUT3.desktop
+message/rfc822=userapp-Thunderbird-U1NUT3.desktop
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-O0LOT3.desktop
+
+[Added Associations]
+x-scheme-handler/http=firefox.desktop;zen.desktop;
+x-scheme-handler/https=firefox.desktop;zen.desktop;
+x-scheme-handler/chrome=firefox.desktop;zen.desktop;
+text/html=zen.desktop;firefox.desktop;
+application/x-extension-htm=zen.desktop;firefox.desktop;
+application/x-extension-html=zen.desktop;firefox.desktop;
+application/x-extension-shtml=zen.desktop;firefox.desktop;
+application/xhtml+xml=zen.desktop;firefox.desktop;
+application/x-extension-xhtml=zen.desktop;firefox.desktop;
+application/x-extension-xht=zen.desktop;firefox.desktop;
+application/vnd.microsoft.portable-executable=wine.desktop;protontricks-launch.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-U1NUT3.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-U1NUT3.desktop;
+message/rfc822=userapp-Thunderbird-U1NUT3.desktop;
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-O0LOT3.desktop;
+text/plain=org.gnome.TextEditor.desktop;
+inode/directory=userapp-peazip-QJ0RV3.desktop;
+application/vnd.efi.iso=peazip.desktop;
+application/x-msdownload=wine.desktop;

@@ -1,0 +1,39 @@
+[config]
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/colors-waybar.css'
+output_path = '~/.config/waybar/colors-matugen.css'
+
+[templates.wofi]
+input_path = '~/.config/matugen/templates/colors-wofi.css'
+output_path = '~/.config/wofi/colors-matugen.css'
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/colors-hyprland.lua'
+output_path = '~/.config/hypr/colors-matugen.lua'
+
+[templates.hyprland_live]
+input_path = '~/.config/matugen/templates/hyprland-live.sh'
+output_path = '~/.config/hypr/colors-matugen-live.sh'
+post_hook = 'bash ~/.config/hypr/colors-matugen-live.sh'
+
+[templates.hyprlock]
+input_path = '~/.config/matugen/templates/hyprlock-colors.conf'
+output_path = '~/.config/hypr/hyprlock-colors.conf'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/colors-kitty.conf'
+output_path = '~/.config/kitty/colors-matugen.conf'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/colors-rofi.rasi'
+output_path = '~/.config/rofi/colors-matugen.rasi'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava.conf'
+output_path = '~/.config/cava/cava.conf'
+
+[templates.swaync]
+input_path = '~/.config/matugen/templates/swaync.css'
+output_path = '~/.config/swaync/colors-matugen.css'
+post_hook = 'swaync-client -rs >/dev/null 2>&1 || true'
